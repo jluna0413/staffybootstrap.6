@@ -1,18 +1,52 @@
-<%= simple_form_for(@job) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.association :client %>
-    <%= f.input :description %>
-    <%= f.input :jobstart %>
-    <%= f.input :jobend %>
-    <%= f.input :talenttype %>
-    <%= f.input :payrate %>
-    <%= f.input :jobzip %>
-    <%= f.input :jobaddress %>
+<%= form_for @job, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :description, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :jobstart, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.datetime_select :jobstart, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :jobend, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.datetime_select :jobend, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :talenttype, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :talenttype, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :payrate, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :payrate, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :jobzip, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :jobzip, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :jobaddress, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :jobaddress, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  jobs_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
